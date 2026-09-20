@@ -1,4 +1,3 @@
-const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,8 +11,7 @@ try {
   console.error('Could not load index.html:', e);
 }
 
-const server = http.createServer((req, res) => {
-  // If indexHtml was somehow not loaded, try to load it again
+function handler(req, res) {
   if (!indexHtml) {
     try {
       indexHtml = fs.readFileSync(INDEX_PATH);
@@ -29,10 +27,14 @@ const server = http.createServer((req, res) => {
     'Cache-Control': 'public, max-age=0, must-revalidate'
   });
   res.end(indexHtml);
-});
+}
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+if (require.main === module) {
+  const http = require('http');
+  const server = http.createServer(handler);
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+  });
+}
 
-module.exports = server;
+module.exports = handler;
