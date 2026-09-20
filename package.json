@@ -2,8 +2,9 @@
   "name": "stay-awake",
   "version": "1.0.0",
   "description": "Stay Awake (জেগে থাকো) Web App",
+  "main": "server.js",
   "scripts": {
-    "start": "node scripts/local-server.js",
-    "build": "echo build success"
+    "start": "node server.js",
+    "build": "echo 'Build OK'"
   }
 }
