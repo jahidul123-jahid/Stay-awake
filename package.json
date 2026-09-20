@@ -1,9 +1,10 @@
 {
-  "name": "jege-thako",
+  "name": "stay-awake",
   "version": "1.0.0",
-  "description": "Local web application",
+  "description": "Stay Awake (জেগে থাকো) Web App",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Build OK'"
   }
 }
