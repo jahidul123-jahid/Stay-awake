@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
-const BASE_DIR = __dirname;
+const BASE_DIR = path.join(__dirname, '..');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -21,10 +21,7 @@ const MIME_TYPES = {
   '.mp4': 'video/mp4',
   '.woff': 'application/font-woff',
   '.woff2': 'font/woff2',
-  '.ttf': 'application/font-ttf',
-  '.eot': 'application/vnd.ms-fontobject',
-  '.otf': 'application/font-otf',
-  '.wasm': 'application/wasm'
+  '.ttf': 'application/font-ttf'
 };
 
 const server = http.createServer((req, res) => {
